@@ -1,0 +1,31 @@
+﻿@model DotnetCoreCaptcha.Models.SampleModel
+@{
+    ViewData["Title"] = "CheckCaptcha";
+}
+
+<h1>CheckCaptcha</h1>
+
+<form asp-action="CheckCaptcha" method="post">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span id="img-captcha"><i class="fa fa-refresh" aria-hidden="true"></i></span>  <img src="~/get-captcha-image" />
+        </div>
+        <input type="text" class="form-control" placeholder="Captcha Code" asp-for="CaptchaCode" maxlength="4" />
+        <span asp-validation-for="CaptchaCode" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-primary btn-radius" type="submit">Submit</button>
+</form>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $("#img-captcha").click(function () {
+        resetCaptchaImage();
+    });
+
+    function resetCaptchaImage() {
+        d = new Date();
+        $("#img-captcha").attr("src", "/get-captcha-image?" + d.getTime());
+    }
+</script>
