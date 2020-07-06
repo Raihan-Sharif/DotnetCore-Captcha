@@ -61,7 +61,10 @@ namespace DotnetCoreCaptcha.Controllers
                 // Validate Captcha Code
                 if (!Captcha.ValidateCaptchaCode(model.CaptchaCode, HttpContext))
                 {
-                    // return error
+                    ViewBag.CaptchaResult = false;
+
+                    ViewBag.CaptchaError = "Sorry, please write correct CAPTCHA.";
+
                 }
                 // continue business logic
             }

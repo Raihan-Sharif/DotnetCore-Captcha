@@ -48,7 +48,7 @@ namespace DotnetCoreCaptcha.Extensions
                 graph.Clear(GetRandomLightColor());
 
                 DrawCaptchaCode();
-                DrawDisorderLine();
+               // DrawDisorderLine();
                 AdjustRippleEffect();
 
                 MemoryStream ms = new MemoryStream();
